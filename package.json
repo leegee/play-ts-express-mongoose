@@ -1,0 +1,34 @@
+{
+  "name": "arive-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev src/index.ts",
+    "test": "mocha --require ts-node/register --extensions ts --exit --spec src/**/*.spec.ts",
+    "test:watch": "mocha --require ts-node/register --extensions ts --watch --watch-files src 'src/**/*.spec.ts' --bail",
+    "test:ci": "start-server-and-test start http-get://localhost:8080/health test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^9.0.0",
+    "@types/mongoose": "^5.11.97",
+    "chai": "^4.3.4",
+    "express-openapi-validator": "^4.12.15",
+    "mocha": "^9.0.3",
+    "pactum": "^3.0.17",
+    "start-server-and-test": "^1.13.1",
+    "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5",
+    "yamljs": "^0.3.0"
+  }
+}
