@@ -1,0 +1,90 @@
+openapi: '3.0.0'
+
+info:
+  title: User Hobby Schema
+  description: For a test
+  version: '0.1'
+
+paths:
+  /user/{userId}:
+    get:
+      summary: Retreive a user by ID
+      parameters:
+        - in: path
+          name: userId
+          schema:
+          type: string
+          required: true
+          description: UID of the user
+      responses:
+        200:
+          description: A user
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  '$ref': '#/components/schemas/User'
+  /hobby/{hobbyId}:
+    get:
+      summary: Retreive a hobby by ID
+      parameters:
+        - in: path
+          name: hobbyId
+          schema:
+          type: string
+          required: true
+          description: UID of the hobby
+      responses:
+        200:
+          description: A hobby
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  '$ref': '#/components/schemas/Hobby'
+
+components:
+  schemas:
+    User:
+      description: A user
+      type: object
+      properties:
+        _id:
+          type: string
+          description: UID
+          example: 610f962356ac3635407c57a9
+        name:
+          type: string
+          description: The user's name
+          example: John Doe
+        hobbies:
+          type: array
+          items:
+            '$ref': '#/components/schemas/Hobby'
+          description: The user's hobbies
+    Hobby:
+      description: A hobby
+      type: object
+      properties:
+        _id:
+          type: string
+          description: UID
+          example: 610f962356ac3635407c57a1
+        name:
+          type: string
+          description: The name of the hobby.
+          example: Stamp Collecting
+        passionLevel:
+          required: true
+          description: An integer between one and four inclusive
+          example: 1
+          schema:
+            - type: string
+            - enum: ['1', '2']
+        year:
+          required: true
+          type: integer
+          description: The year associated with the hobby
+          example: 1999
