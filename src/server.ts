@@ -2,7 +2,6 @@ import fs from 'fs';
 
 import * as  OpenApiValidator from 'express-openapi-validator';
 import express, { Request, Response, NextFunction, Application } from 'express';
-import 'express-async-errors';
 
 import * as myMongoose from './my-mongoose';
 

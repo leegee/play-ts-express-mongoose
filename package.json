@@ -5,10 +5,10 @@
   "main": "src/index",
   "scripts": {
     "start": "ts-node src/index.ts",
+    "test": "start-server-and-test start http-get://localhost:8080/health test:dev",
     "dev": "ts-node-dev src/index.ts",
-    "test": "mocha --require ts-node/register --extensions ts --exit --spec src/**/*.spec.ts",
-    "test:watch": "mocha --require ts-node/register --extensions ts --watch --watch-files src 'src/**/*.spec.ts' --bail",
-    "test:ci": "start-server-and-test start http-get://localhost:8080/health test"
+    "test:dev": "mocha --require ts-node/register --extensions ts --exit --spec src/**/*.spec.ts",
+    "test:watch": "mocha --require ts-node/register --extensions ts --watch --watch-files src 'src/**/*.spec.ts' --bail"
   },
   "keywords": [],
   "author": "",
